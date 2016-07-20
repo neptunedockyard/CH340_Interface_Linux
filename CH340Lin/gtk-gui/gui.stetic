@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/CH340Lin.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="1156 1109">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">wTerm</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="Resizable">False</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.Fixed" id="fixed2">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Button" id="connectbutton">
+            <property name="MemberName" />
+            <property name="WidthRequest">80</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Connect</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="connectOnClick" />
+          </widget>
+          <packing>
+            <property name="X">10</property>
+            <property name="Y">10</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comportbox">
+            <property name="MemberName" />
+            <property name="WidthRequest">80</property>
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">COM</property>
+            <property name="Active">0</property>
+            <signal name="PopupMenu" handler="getCOMports" />
+            <signal name="Focused" handler="getCOMports" />
+          </widget>
+          <packing>
+            <property name="X">10</property>
+            <property name="Y">50</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="baudratebox">
+            <property name="MemberName" />
+            <property name="WidthRequest">80</property>
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">Baud
+4800
+9600
+14400 - Not avialable
+19200
+38400
+115200</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">10</property>
+            <property name="Y">90</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="encryptionOPT">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">Encryption</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="toggleEncryptButton" />
+          </widget>
+          <packing>
+            <property name="X">100</property>
+            <property name="Y">10</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.RadioButton" id="desradio">
+            <property name="MemberName" />
+            <property name="Sensitive">False</property>
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">DES</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <property name="Group">group1</property>
+          </widget>
+          <packing>
+            <property name="X">100</property>
+            <property name="Y">40</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.RadioButton" id="aesradio">
+            <property name="MemberName" />
+            <property name="Sensitive">False</property>
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">AES</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <property name="Group">group1</property>
+          </widget>
+          <packing>
+            <property name="X">100</property>
+            <property name="Y">60</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.RadioButton" id="otherradio">
+            <property name="MemberName" />
+            <property name="Sensitive">False</property>
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">Other</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <property name="Group">group1</property>
+          </widget>
+          <packing>
+            <property name="X">100</property>
+            <property name="Y">80</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="bitratebox">
+            <property name="MemberName" />
+            <property name="WidthRequest">80</property>
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">250kbps
+1Mbps
+2Mbps</property>
+          </widget>
+          <packing>
+            <property name="X">220</property>
+            <property name="Y">50</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="frequencybox">
+            <property name="MemberName" />
+            <property name="WidthRequest">80</property>
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">2.400
+2.401
+2.402
+2.403
+2.404
+2.405
+2.406
+2.407
+2.408
+2.409
+2.410
+2.411
+2.412
+2.413
+2.414
+2.415
+2.416
+2.417
+2.418
+2.419
+2.420
+2.421
+2.422
+2.423
+2.424
+2.425
+2.426
+2.427
+2.428
+2.429
+2.430
+2.431
+2.432
+2.433
+2.434
+2.435
+2.436
+2.437
+2.438
+2.439
+2.440
+2.441
+2.442
+2.443
+2.444
+2.445
+2.446
+2.447
+2.448
+2.449
+2.450
+2.451
+2.452
+2.453
+2.454
+2.455
+2.456
+2.457
+2.458
+2.459
+2.460
+2.461
+2.462
+2.463
+2.464
+2.465
+2.466
+2.467
+2.468
+2.469
+2.470
+2.471
+2.472
+2.473
+2.474
+2.475
+2.476
+2.477
+2.478
+2.479
+2.480
+2.481
+2.482
+2.483
+2.484
+2.485
+2.486
+2.487
+2.488
+2.489
+2.490
+2.491
+2.492
+2.493
+2.494
+2.495
+2.496
+2.497
+2.498
+2.499
+2.500
+2.501
+2.502
+2.503
+2.504
+2.505
+2.506
+2.507
+2.508
+2.509
+2.510
+2.511
+2.512
+2.513
+2.514
+2.515
+2.516
+2.517
+2.518
+2.519
+2.520
+2.521
+2.522
+2.523
+2.524
+2.525</property>
+          </widget>
+          <packing>
+            <property name="X">220</property>
+            <property name="Y">90</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="rxbox">
+            <property name="MemberName" />
+            <property name="WidthRequest">600</property>
+            <property name="HeightRequest">100</property>
+            <property name="HscrollbarPolicy">Never</property>
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TextView" id="rxtext">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="Editable">False</property>
+                <property name="Overwrite">True</property>
+                <property name="AcceptsTab">False</property>
+                <property name="Text" translatable="yes" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Y">140</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="sendbutton">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Send</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="send_data" />
+          </widget>
+          <packing>
+            <property name="X">555</property>
+            <property name="Y">250</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="setbutton">
+            <property name="MemberName" />
+            <property name="WidthRequest">80</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Set</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="setProperties" />
+          </widget>
+          <packing>
+            <property name="X">220</property>
+            <property name="Y">10</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="rxaentry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Text" translatable="yes">4433221100</property>
+            <property name="IsEditable">True</property>
+            <property name="MaxLength">10</property>
+            <property name="InvisibleChar">•</property>
+          </widget>
+          <packing>
+            <property name="X">320</property>
+            <property name="Y">10</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="txaentry">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Text" translatable="yes">1122334455</property>
+            <property name="IsEditable">True</property>
+            <property name="MaxLength">10</property>
+            <property name="InvisibleChar">•</property>
+          </widget>
+          <packing>
+            <property name="X">320</property>
+            <property name="Y">50</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="txentry">
+            <property name="MemberName" />
+            <property name="WidthRequest">550</property>
+            <property name="CanFocus">True</property>
+            <property name="IsEditable">True</property>
+            <property name="MaxLength">128</property>
+            <property name="InvisibleChar">•</property>
+            <signal name="Activated" handler="textEnterActivated" />
+          </widget>
+          <packing>
+            <property name="Y">250</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
